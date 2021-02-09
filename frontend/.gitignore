@@ -1,4 +1,4 @@
 .DS_*
 node_modules
 .idea/
-.static/
+.static/**

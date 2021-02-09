@@ -74,9 +74,16 @@ export function userMeAction() {
 
 
 /** LOGOUT **/
+const userLogoutStartAction = () => createAction(USER_LOGOUT)
 export function userLogoutAction() {
-    api.users.logout()
-    return createAction(USER_LOGOUT)
+    return async dispatch => {
+        dispatch(userLogoutStartAction())
+        try {
+           await api.users.logout()
+        } catch (error) {
+
+        }
+    }
 }
 
 /** END LOGOUT **/

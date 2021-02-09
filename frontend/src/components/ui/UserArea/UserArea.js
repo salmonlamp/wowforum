@@ -3,6 +3,7 @@ import classes from './UserArea.module.scss'
 import Icons from "../Icons/Icons";
 import {Link} from "react-router-dom";
 import {useSelector} from "react-redux";
+import userServices from "../../../redux/user/userServices";
 
 const UserArea = () => {
     const auth = useSelector(state => state.auth)
@@ -20,6 +21,10 @@ const UserArea = () => {
                         <Link to={"/profile/settings"} className={classes.link}>
                             {auth.user.username}
                         </Link>
+                        <span className={classes.separator}>/</span>
+                        <button className={classes.link} onClick={userServices.logout}>
+                            Logout
+                        </button>
                     </>
                     : <>
                         <Icons

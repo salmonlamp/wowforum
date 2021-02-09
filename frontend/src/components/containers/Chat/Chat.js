@@ -78,11 +78,16 @@ const Chat = () => {
                                     {
                                         isLogged
                                             ? <ChatForm websocket={ws}/>
-                                            : <p className={classes.msgText}>Login to send a message</p>
+                                            : null
                                     }
 
                                 </>
                                 : <CommonLoading/>
+                        }
+                        {
+                            isLogged
+                                ? null
+                                : <p className={classes.msgText}>Login to join to chat</p>
                         }
 
                     </div>
