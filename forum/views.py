@@ -1,11 +1,9 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
-from rest_framework.permissions import AllowAny, IsAuthenticated, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.status import HTTP_201_CREATED, HTTP_400_BAD_REQUEST
 from rest_framework.views import APIView
-from rest_framework_simplejwt.authentication import JWTAuthentication
-from .models import ForumCategory, ForumPost, ForumPostComment
+from .models import ForumCategory, ForumPost
 from .pagination import StandardResultsSetPagination
 from .serializers import ForumCategorySerializer, ForumPostListSerializer, ForumPostSingleSerializer, \
     ForumPostCommentAddSerializer, ForumPostCommentListSerializer
@@ -13,15 +11,11 @@ from .services import post_like, post_comment_like
 
 
 class ForumCategoryListView(generics.ListAPIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (AllowAny,)
     queryset = ForumCategory.objects.all()
     serializer_class = ForumCategorySerializer
 
 
 class ForumCategoryPostListView(generics.ListAPIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (AllowAny,)
     serializer_class = ForumPostListSerializer
     pagination_class = StandardResultsSetPagination
 
@@ -37,8 +31,6 @@ class ForumCategoryPostListView(generics.ListAPIView):
 
 
 class ForumPostSingleView(generics.RetrieveAPIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (AllowAny,)
     serializer_class = ForumPostSingleSerializer
     queryset = ForumPost.objects.all()
 
@@ -49,17 +41,11 @@ class ForumPostSingleView(generics.RetrieveAPIView):
 
 
 class ForumPostLikeView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
     def post(self, request, pk):
         return post_like(request.user, pk)
 
 
 class ForumPostCommentView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
     def get(self, request, pk):
         pass
 
@@ -81,9 +67,6 @@ class ForumPostCommentView(APIView):
 
 
 class ForumPostCommentLikeView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
     def post(self, request, pk):
         return post_comment_like(request.user, pk)
 

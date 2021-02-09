@@ -1,5 +1,7 @@
-export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
-export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
+// export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
+export const BASE_API_URL = 'http://wow.salmontest.ru/api/'
+// export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
+export const WEBSOCKET_URL = 'ws://wow.salmontest.ru/ws/chat/'
 
 /** ACCOUNT **/
 export const TOKEN_REFRESH_API_URL = 'account/token/refresh/'

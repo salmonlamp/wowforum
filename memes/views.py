@@ -1,10 +1,8 @@
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAuthenticatedOrReadOnly
 from rest_framework.response import Response
 from rest_framework.status import HTTP_400_BAD_REQUEST, HTTP_201_CREATED
 from rest_framework.views import APIView
-from rest_framework_simplejwt.authentication import JWTAuthentication
 
 from .models import Meme, MemeComment
 from .pagination import StandardResultsSetPagination
@@ -13,8 +11,6 @@ from .services import meme_like, meme_comment_like
 
 
 class MemeListView(generics.ListAPIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (AllowAny,)
     queryset = Meme.objects.all()
     serializer_class = MemeListSerializer
     pagination_class = StandardResultsSetPagination
@@ -26,17 +22,11 @@ class MemeListView(generics.ListAPIView):
 
 
 class MemeLikeView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
     def post(self, request, pk):
         return meme_like(request.user, pk)
 
 
 class MemeCommentView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticatedOrReadOnly,)
-
     def get(self, request, pk):
         comment_list = MemeComment.objects.filter(meme_id=pk)
         serializer = MemeCommentListSerializer(comment_list, many=True, context={'user': request.user})
@@ -60,8 +50,5 @@ class MemeCommentView(APIView):
 
 
 class MemeCommentLikeView(APIView):
-    authentication_classes = (JWTAuthentication,)
-    permission_classes = (IsAuthenticated,)
-
     def post(self, request, pk):
         return meme_comment_like(request.user, pk)
