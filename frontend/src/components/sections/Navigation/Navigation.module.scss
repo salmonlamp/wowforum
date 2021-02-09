@@ -1,0 +1,35 @@
+.top {
+  padding: 2px 0 14px;
+  margin-bottom: 10px;
+
+  background-color: rgba(46, 60, 154, .6);
+}
+
+.bottom {
+  padding: 13px 10px;
+
+  border-radius: 25px;
+  background-image: url("mainMenu-bg.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgba(46, 60, 154, .6);
+}
+
+@media (max-width: 964px) {
+  .top {
+    padding: 0;
+    padding-top: 13px;
+    margin: 0;
+
+    background-color: #8345D5;
+    border-bottom: 1px solid #FFFFFF;
+  }
+
+  .bottom {
+    padding: 0;
+
+    border-radius: 0;
+    background-image: url("mainMenu-bg-mob.jpg");
+  }
+}

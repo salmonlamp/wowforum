@@ -1,0 +1,29 @@
+.main {
+  width: 100%;
+  height: 170px;
+  padding: 7px 20px;
+  margin-bottom: 10px;
+
+  color: #515151;
+
+  border: 1px solid #C2C2C2;
+  border-radius: 5px;
+
+  outline: none;
+
+  &::-webkit-input-placeholder {
+    color: #AAAAAA;
+  }
+
+  &::-moz-placeholder {
+    color: #AAAAAA;
+  }
+
+  &:-moz-placeholder {
+    color: #AAAAAA;
+  }
+
+  &:-ms-input-placeholder {
+    color: #AAAAAA;
+  }
+}

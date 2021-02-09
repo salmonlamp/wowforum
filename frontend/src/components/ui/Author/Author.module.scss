@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  margin-right: 10px;
+}
+
+.topRow,
+.bottomRow {
+  display: flex;
+  align-items: center;
+}
+
+.bottomRow {
+  margin-top: 3px;
+}
+
+.name {
+  margin-right: 7px;
+
+  font-size: 14px;
+  line-height: 15px;
+  color: #949494;
+}

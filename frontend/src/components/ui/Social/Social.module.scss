@@ -1,0 +1,40 @@
+.list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+
+  cursor: pointer;
+  transition: all 0.1s ease;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+}
+
+.icon {
+  fill: #FFFFFF;
+}
+
+.link {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}

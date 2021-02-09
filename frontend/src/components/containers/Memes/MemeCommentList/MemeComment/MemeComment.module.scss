@@ -1,0 +1,40 @@
+.container {
+  margin-bottom: 20px;
+}
+
+.author {
+  margin-bottom: 5px;
+}
+
+.text {
+  margin-bottom: 5px;
+}
+
+.text p {
+  margin: 0;
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #515151;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+}
+
+.bottomLeft {
+  display: flex;
+  align-items: flex-end;
+}
+
+.bottomRight {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}

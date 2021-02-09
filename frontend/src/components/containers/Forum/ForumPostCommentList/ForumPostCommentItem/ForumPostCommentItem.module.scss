@@ -1,0 +1,30 @@
+.container {
+  margin-bottom: 20px;
+}
+
+.topRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 9px;
+}
+
+.author {
+  margin-right: 12px;
+}
+
+.like {
+  margin-right: 10px;
+}
+
+.text p {
+  margin: 0;
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  line-height: 15px;
+  color: #515151;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

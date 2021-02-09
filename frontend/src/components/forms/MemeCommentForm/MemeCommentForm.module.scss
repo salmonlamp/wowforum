@@ -1,0 +1,43 @@
+.form {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
+  padding-right: 20px;
+
+  border: 1px solid #C2C2C2;
+  border-radius: 5px;
+}
+
+.field {
+  resize: none;
+
+  height: 100%;
+  width: 100%;
+  padding: 5px 20px;
+  margin-right: 10px;
+
+  font-size: 13px;
+  line-height: 19px;
+  color: #515151;
+
+  border: none;
+  outline: none;
+
+  &::-webkit-input-placeholder {
+    color: #D5D5D5;
+  }
+
+  &::-moz-placeholder {
+    color: #D5D5D5;
+  }
+
+  &:-moz-placeholder {
+    color: #D5D5D5;
+  }
+
+  &:-ms-input-placeholder {
+    color: #D5D5D5;
+  }
+}

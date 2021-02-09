@@ -1,0 +1,99 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding: 0;
+
+  background: none;
+  border: none;
+
+  outline: none;
+}
+
+button.container,
+a.container {
+  cursor: pointer;
+
+  transition: all .1s ease;
+
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+}
+
+div.container {
+  cursor: default;
+}
+
+.icon {
+  fill: inherit;
+  stroke: inherit;
+
+  transition: all 0.1s ease;
+}
+
+.label {
+  margin-left: 5px;
+
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 900;
+
+  color: inherit;
+}
+
+.container.white {
+  .icon {
+    fill: #FFFFFF;
+  }
+
+  .label {
+    color: #FFFFFF;
+  }
+}
+
+.container.blue {
+  .icon {
+    fill: #B9DDF5;
+  }
+
+  .label {
+    color: #AAAAAA;
+  }
+
+  &.active {
+    .icon {
+      fill: #47AEF3;
+    }
+
+    .label {
+      color: #47AEF3;
+    }
+  }
+}
+
+.container.grey {
+  .icon {
+    fill: #AAAAAA;
+  }
+
+  .label {
+    color: #AAAAAA;
+  }
+
+  &.active {
+    .icon {
+      fill: #47AEF3;
+    }
+  }
+}
+
+.container.brightBlue {
+  .icon {
+    fill: #2C5BCC;
+  }
+
+  .label {
+    color: #2C5BCC;
+  }
+}

@@ -1,0 +1,85 @@
+.container {
+  margin-bottom: 20px;
+}
+
+.openButton {
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  background: none;
+  outline: none;
+
+  cursor: pointer;
+}
+
+.controlArea {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: -32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 32px;
+  width: 100%;
+  padding: 0 20px;
+
+  background-color: #47AEF3;
+
+  transition: all .2s ease;
+}
+
+.imageContainer {
+  overflow: hidden;
+
+  position: relative;
+
+  width: 100%;
+  margin-bottom: 16px;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  &:hover {
+    .controlArea {
+      bottom: 0;
+    }
+  }
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
+
+.controlItem {
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.controlItem.active {
+  fill: #FFFFFF;
+}
+
+.title {
+  margin: 0;
+
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 900;
+  color: #515151;
+}

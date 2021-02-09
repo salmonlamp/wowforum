@@ -1,0 +1,31 @@
+.list {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+  list-style: none;
+}
+
+.item {}
+
+.link {
+  font-size: 10px;
+  line-height: 12px;
+}
+
+a.link {
+  color: #515151;
+
+  cursor: pointer;
+  transition: all 0.1s ease;
+
+  &:hover,
+  &:focus {
+    color: #47AEF3;
+  }
+}
+
+span.link {
+  color: #47AEF3;
+}

@@ -1,0 +1,75 @@
+.topRow {
+  display: flex;
+  align-items: center;
+  margin-bottom: 11px;
+}
+
+.author {
+  margin-right: 20px;
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 19px;
+
+  font-size: 20px;
+  line-height: 27px;
+  color: #515151;
+}
+
+.titleLink {
+  font-size: 20px;
+  line-height: 27px;
+  color: #515151;
+
+  transition: all .1s ease;
+
+  &:hover,
+  &:focus {
+    opacity: .7;
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.controlItem {
+  margin-right: 20px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.imageContainer {
+  position: relative;
+
+  width: 100%;
+  border-radius: 5px;
+  margin-bottom: 34px;
+}
+
+.imageLink {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  cursor: pointer;
+}
+
+.thumbnail {
+  width: 100%;
+  object-fit: cover;
+}
+
+.commentsForm {
+  margin-bottom: 40px;
+}

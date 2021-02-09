@@ -1,0 +1,21 @@
+.box {
+  width: 100%;
+  max-width: 1270px;
+  margin: 0 auto;
+
+  padding: 0 15px;
+}
+
+.mobileOff {
+
+}
+
+@media (max-width: 964px) {
+  .box {
+    padding: 0 20px;
+  }
+
+  .mobileOff {
+    padding: 0;
+  }
+}

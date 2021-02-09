@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+
+  height: 530px;
+  width: 100%;
+
+  background-color: #FFFFFF;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 844px;
+  flex-shrink: 0;
+
+  background-color: #CECECE;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+}
+
+.communityArea {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.metaArea {
+  padding: 10px 20px;
+  border-bottom: 1px solid #C2C2C2;
+}
+
+.authorArea {
+  margin-bottom: 7px;
+}
+
+.title {
+  margin: 0 0 10px;
+
+  font-size: 13px;
+  line-height: 21px;
+  color: #515151;
+  font-weight: 400;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+.controlItem {
+  margin-right: 20px;
+}
+
+.commentArea {
+  overflow: hidden;
+
+  position: relative;
+
+  height: 100%;
+  padding: 0 0 70px 20px;
+}
+
+.commentWrapper {
+  overflow-y: scroll;
+
+  height: 100%;
+}
+
+.commentForm {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+
+  padding-right: 40px;
+  height: 40px;
+  width: 100%;
+}
+
+@media (max-width: 964px) {
+  .container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .image {
+    height: auto;
+  }
+}
