@@ -2,13 +2,13 @@ import React from 'react'
 import classes from './Footer.module.scss'
 import Container from "../../wrappers/Container/Container"
 import {Link} from "react-router-dom"
-import Social from "../../ui/Social/Social";
-import Chat from "../../containers/Chat/Chat";
+import Social from "../../ui/Social/Social"
+import Chat from "../../containers/Chat/Chat"
 
 const Footer = () => {
     return (
         <footer className={classes.container}>
-            <Chat/>
+            {/*<Chat/>*/}
             <Container>
                 <div className={classes.content}>
 

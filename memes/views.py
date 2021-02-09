@@ -13,8 +13,8 @@ from .services import meme_like, meme_comment_like
 
 
 class MemeListView(generics.ListAPIView):
-    authentication_classes = (JWTAuthentication,)
     permission_classes = (AllowAny,)
+    authentication_classes = (JWTAuthentication,)
     queryset = Meme.objects.all()
     serializer_class = MemeListSerializer
     pagination_class = StandardResultsSetPagination

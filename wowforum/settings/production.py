@@ -10,16 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
-import pathlib
 from datetime import timedelta
-from pathlib import Path
-
 from dotenv import load_dotenv
 
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -45,9 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'rest_framework',
     'rest_framework_simplejwt',
     'corsheaders',
-    'rest_framework',
     'channels',
 
     'frontend',
@@ -87,7 +84,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'wowforum.wsgi.application'
-ASGI_APPLICATION = "wowforum.asgi.application"
+ASGI_APPLICATION = 'wowforum.asgi.application'
+
 CHANNEL_LAYERS = {
     'default': {
         # 'BACKEND': 'channels_redis.core.RedisChannelLayer',
@@ -160,9 +158,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly'
-    ]
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    )
 }
 
 SIMPLE_JWT = {
