@@ -1,7 +1,7 @@
 import React from 'react'
 import classes from './Social.module.scss'
-import Icons from "../Icons/Icons";
-import {Link} from "react-router-dom";
+import Icons from "../Icons/Icons"
+import {Link} from "react-router-dom"
 
 const Social = ({size = 14}) =>
     <ul className={classes.list}>

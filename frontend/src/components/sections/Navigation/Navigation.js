@@ -3,19 +3,29 @@ import classes from './Navigation.module.scss'
 import Container from "../../wrappers/Container/Container"
 import SmallMenu from "./SmallMenu/SmallMenu"
 import MainMenu from "./MainMenu/MainMenu"
-import {useDispatch, useSelector} from "react-redux";
-import {forumCategoryListLoadingAction} from "../../../redux/forum/forumActions";
+import {useSelector} from "react-redux"
+import forumServices from "../../../redux/forum/forumServices";
 
 const Navigation = () => {
-    const dispatch = useDispatch()
-    const forumCategoryList = useSelector(state => state.forum.categoryList)
+    const sectionList = useSelector(state => state.forum.sectionList)
+    const activeSectionPk = useSelector(state => state.forum.activeSectionPk)
 
     useEffect(
-        () => {
-            dispatch(forumCategoryListLoadingAction())
-        },
+        () => forumServices.sectionListLoading(),
         []
     )
+
+    const mainMenu =
+        sectionList
+            ? <Container mobileOff={true}>
+                <div className={classes.bottom}>
+                    <MainMenu
+                        activePk={activeSectionPk}
+                        list={sectionList}
+                    />
+                </div>
+            </Container>
+            : null
 
     return (
         <>
@@ -25,15 +35,8 @@ const Navigation = () => {
                 </Container>
             </div>
 
-            <Container mobileOff={true}>
-                {
-                    forumCategoryList
-                        ? <div className={classes.bottom}>
-                            <MainMenu list={forumCategoryList}/>
-                        </div>
-                        : <></>
-                }
-            </Container>
+            {mainMenu}
+
         </>
     )
 }

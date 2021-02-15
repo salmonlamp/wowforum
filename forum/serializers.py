@@ -1,12 +1,25 @@
 from rest_framework import serializers
 
-from .models import ForumCategory, ForumPost, ForumPostLike, ForumPostComment, ForumPostCommentLike
+from .models import ForumSection, ForumCategory, ForumPost, ForumPostLike, ForumPostComment, ForumPostCommentLike, \
+    ForumSubCategory
 from account.serializers import UserSerializer
+
+
+class ForumSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ForumSection
+        fields = '__all__'
 
 
 class ForumCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = ForumCategory
+        fields = '__all__'
+
+
+class ForumSubCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ForumSubCategory
         fields = '__all__'
 
 

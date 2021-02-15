@@ -1,13 +1,25 @@
 import {store, dispatch} from '../store'
 import {
+    forumCategoryListLoadingAction,
     forumCategoryPostListLoadingAction,
     forumPostCommentAddAction,
     forumPostCommentLikeAction,
     forumPostLikeAction,
-    forumPostSingleLoading
+    forumPostSingleLoading,
+    forumSectionListLoadingAction,
+    forumSubCategoryListLoading,
+    forumAllPostListLoadingAction
 } from "./forumActions"
 
 export default {
+    sectionListLoading: () => dispatch(forumSectionListLoadingAction()),
+
+    categoryListLoading: sectionPk => dispatch(forumCategoryListLoadingAction(sectionPk)),
+
+    subCategoryListLoading: categoryPk => dispatch(forumSubCategoryListLoading(categoryPk)),
+
+    allPostList: () => dispatch(forumAllPostListLoadingAction()),
+
     postLike: postPk => dispatch(forumPostLikeAction(postPk)),
     categoryPostListLoading: (categoryPk) => {
         const page = store.getState().forum.postListPage

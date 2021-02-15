@@ -2,9 +2,12 @@ import React from 'react'
 import classes from './Content.module.scss'
 import Breadcrumbs from "../../ui/Breadcrumbs/Breadcrumbs"
 
-const Content = ({children}) => {
+const Content = ({children, borderTopRadius = true}) => {
+    const cls = [classes.box]
+    if (!borderTopRadius) cls.push(classes.borderTop0)
+
     return (
-        <div className={classes.box}>
+        <div className={cls.join(' ')}>
 
             <div className={classes.inner}>
 

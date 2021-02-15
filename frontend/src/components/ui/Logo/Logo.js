@@ -8,7 +8,7 @@ const Logo = () => {
             <span className={classes.label}>
               LOGO
             </span>
-            <Link to={'#'} className={classes.link}/>
+            <Link to={'/'} className={classes.link}/>
         </div>
     )
 }

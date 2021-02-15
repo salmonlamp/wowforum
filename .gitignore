@@ -106,4 +106,4 @@ ipython_config.py
 __pypackages__/
 .mypy_cache/
 .idea/
-#db.sqlite3
+db.sqlite3

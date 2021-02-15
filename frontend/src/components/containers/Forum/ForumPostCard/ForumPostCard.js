@@ -77,6 +77,13 @@ const ForumPostCard = ({post, isLogged, isLink = false}) => {
                         : null
                 }
             </div>
+
+            {
+                !isLink
+                    ? null
+                    : post.text
+            }
+
         </div>
     )
 }

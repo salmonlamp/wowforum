@@ -5,23 +5,15 @@ import Footer from "./sections/Footer/Footer"
 import HomePage from "./pages/HomePage"
 import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
-import {useDispatch, useSelector} from "react-redux";
-import {userMeAction} from "../redux/user/userActions";
-import ForumCategoryPage from "./pages/ForumCategoryPage";
 import ForumPostPage from "./pages/ForumPostPage";
 import ProfileSettingsPage from "./pages/ProfileSettingsPage";
+import userServices from "../redux/user/userServices";
+import ForumSectionPage from "./pages/ForumSectionPage";
 
 require('./App.scss')
 
 function App() {
-    const dispatch = useDispatch()
-
-    useEffect(
-        () => {
-            dispatch(userMeAction())
-        },
-        []
-    )
+    useEffect(userServices.me, [])
 
     return (
         <BrowserRouter>
@@ -32,7 +24,7 @@ function App() {
                 <Route path={'/profile/settings'} component={ProfileSettingsPage}/>
                 <Route path={'/login'} component={LoginPage}/>
                 <Route path={'/signup'} component={SignUpPage}/>
-                <Route path={'/categories/:pk'} component={ForumCategoryPage}/>
+                <Route path={'/sections/:pk'} component={ForumSectionPage}/>
                 <Route path={'/posts/:pk'} component={ForumPostPage}/>
             </Switch>
 

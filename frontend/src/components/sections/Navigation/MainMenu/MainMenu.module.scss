@@ -18,6 +18,21 @@
   }
 }
 
+.item.active {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    bottom: -3px;
+
+    height: 2px;
+
+    background-color: #09FFEE;
+  }
+}
+
 .link {
   display: block;
   padding: 6px 5px;
@@ -32,7 +47,7 @@
 
   &:hover,
   &:focus {
-    opacity: .7;
+    color: #09FFEE;
   }
 }
 

@@ -1,0 +1,40 @@
+.list {
+  overflow: hidden;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+
+  background-color: #94A5D8;
+  list-style: none;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.item {
+  margin-top: -1px;
+  border-top: 1px solid #ffffff;
+}
+
+.link {
+  display: block;
+
+  padding: 13px 30px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #FFFFFF;
+  text-transform: uppercase;
+
+  background-color: #94A5D8;
+
+  cursor: pointer;
+  transition: all .1s ease;
+
+  &:hover,
+  &:focus {
+    color: #6875BB;
+  }
+}
+

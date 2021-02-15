@@ -6,6 +6,12 @@
   border-radius: 5px;
 }
 
+.box.borderTop0 {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-top: none;
+}
+
 .box.withSidebar {
   padding-right: 0;
   display: flex;

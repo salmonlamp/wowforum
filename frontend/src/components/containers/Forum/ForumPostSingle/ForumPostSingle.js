@@ -20,6 +20,7 @@ const ForumPostSingle = ({postPk}) => {
         post
             ? <>
                 <ForumPostCard post={post} isLogged={isLogged}/>
+
                 {
                     isLogged
                         ? <ForumPostCommentForm

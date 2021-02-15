@@ -13,10 +13,10 @@ import os
 from datetime import timedelta
 from dotenv import load_dotenv
 
-load_dotenv()
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
+load_dotenv(os.path.join(BASE_DIR, '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -35,6 +35,9 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'ckeditor',
+    'ckeditor_uploader',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,6 +154,25 @@ STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+CKEDITOR_UPLOAD_PATH = "posts/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink'
+             '-', 'Format',
+             '-', 'Maximize',
+             '-', 'Image',
+             '-', 'NumberedList', 'BulletedList'
+             ],
+            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+        ],
+        'height': 500,
+        'toolbarCanCollapse': False,
+        'forcePasteAsPlainText': True
+    }
+}
 
 AUTH_USER_MODEL = 'account.User'
 

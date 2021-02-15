@@ -2,13 +2,15 @@ import React from 'react'
 import {Link} from "react-router-dom"
 import classes from './MainMenu.module.scss'
 
-const MainMenu = ({list}) => {
+const MainMenu = ({list, activePk}) => {
     const items = Object.keys(list)
         .map((key, index) => {
                 const item = list[key]
+                const cls = [classes.item]
+                if (item['id'].toString() === activePk) cls.push(classes.active)
                 return (
-                    <li key={index} className={classes.item}>
-                        <Link to={`/categories/${item.id}`} className={classes.link}>
+                    <li key={index} className={cls.join(' ')}>
+                        <Link to={`/sections/${item.id}`} className={classes.link}>
                             {item.name}
                         </Link>
                     </li>
