@@ -7,6 +7,8 @@ import ForumServices from "../../../../redux/forum/forumServices";
 import {Link} from "react-router-dom";
 
 const ForumPostCard = ({post, isLogged, isLink = false}) => {
+    console.log(post)
+
     return (
         <div>
             <div className={classes.topRow}>
@@ -79,9 +81,9 @@ const ForumPostCard = ({post, isLogged, isLink = false}) => {
             </div>
 
             {
-                !isLink
+                isLink
                     ? null
-                    : post.text
+                    : <div className={classes.textArea} dangerouslySetInnerHTML={{__html: post.text}}/>
             }
 
         </div>

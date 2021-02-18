@@ -11,7 +11,7 @@ const ForumPostList = ({categoryPk}) => {
     const list = useSelector(state => state.forum.postList)
 
     useEffect(
-        () => forumServices.categoryPostListLoading(categoryPk),
+        () => forumServices.allPostList(),
         []
     )
 
@@ -32,19 +32,21 @@ const ForumPostList = ({categoryPk}) => {
         : null
 
     return (
-        <InfiniteScroll
-            dataLength={items.length} //This is important field to render the next data
-            next={() => forumServices.categoryPostListLoading(categoryPk)}
-            hasMore={hasNext}
-            loader={<CommonLoading/>}
-            endMessage={
-                <p style={{textAlign: 'center'}}>
-                    <b>Yay! You have seen it all</b>
-                </p>
-            }
-        >
+        // <InfiniteScroll
+        //     dataLength={items.length} //This is important field to render the next data
+        //     next={() => forumServices.categoryPostListLoading(categoryPk)}
+        //     hasMore={hasNext}
+        //     loader={<CommonLoading/>}
+        //     endMessage={
+        //         <p style={{textAlign: 'center'}}>
+        //             <b>Yay! You have seen it all</b>
+        //         </p>
+        //     }
+        // >
+        <div>
             {items}
-        </InfiniteScroll>
+        </div>
+        // </InfiniteScroll>
     )
 }
 

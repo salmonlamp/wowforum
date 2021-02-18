@@ -54,7 +54,9 @@ class ForumAPI {
 
 
     static async allPostList() {
-        return await axiosAPI.get(FORUM_ALL_POST_LIST_API_URL)
+        const response = await axiosAPI.get(FORUM_ALL_POST_LIST_API_URL)
+        console.log(response)
+        return response
     }
 
 }

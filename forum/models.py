@@ -54,7 +54,7 @@ class ForumPost(models.Model):
     subcategory = models.ForeignKey(ForumSubCategory, verbose_name='Подкатегория', on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
     title = models.CharField('Заголовок', max_length=200)
-    image = models.ImageField('Изображение', upload_to='posts/%Y/%m/%d/')
+    image = models.ImageField('Изображение', upload_to='posts/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     text = RichTextUploadingField()
     slug = models.SlugField(max_length=50, unique=True)

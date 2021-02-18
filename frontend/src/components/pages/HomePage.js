@@ -4,14 +4,16 @@ import Main from "../sections/Main/Main";
 import Container from "../wrappers/Container/Container";
 import MemePopup from "../containers/Memes/MemePopup/MemePopup";
 import MemeList from "../containers/Memes/MemeList/MemeList";
+import ForumPostList from "../containers/Forum/ForumPostList/ForumPostList";
 
 const HomePage = () => {
     return (
         <Main>
             <Container>
                 <Content>
-                    <MemeList/>
-                    <MemePopup/>
+                    {/*<MemeList/>*/}
+                    {/*<MemePopup/>*/}
+                    <ForumPostList/>
                 </Content>
             </Container>
         </Main>
