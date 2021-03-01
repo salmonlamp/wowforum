@@ -9,6 +9,7 @@ import ForumPostPage from "./pages/ForumPostPage";
 import ProfileSettingsPage from "./pages/ProfileSettingsPage";
 import userServices from "../redux/user/userServices";
 import ForumSectionPage from "./pages/ForumSectionPage";
+import ForumSubCategoryPage from "./pages/ForumSubCategoryPage";
 
 require('./App.scss')
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path={'/login'} component={LoginPage}/>
                 <Route path={'/signup'} component={SignUpPage}/>
                 <Route path={'/sections/:pk'} component={ForumSectionPage}/>
+                <Route path={'/subcategories/:pk'} component={ForumSubCategoryPage}/>
                 <Route path={'/posts/:pk'} component={ForumPostPage}/>
             </Switch>
 

@@ -1,6 +1,6 @@
 import {
     FORUM_ALL_POST_LIST_LOADING_FINISH,
-    FORUM_CATEGORY_LIST_LOADING_FINISH,
+    FORUM_CATEGORY_LIST_FETCH_FINISH,
     FORUM_CATEGORY_LIST_LOADING_START,
     FORUM_CATEGORY_POST_LIST_LOADING_FINISH,
     FORUM_CATEGORY_POST_LIST_LOADING_START,
@@ -8,27 +8,26 @@ import {
     FORUM_POST_COMMENT_ADD_START,
     FORUM_POST_COMMENT_LIKE,
     FORUM_POST_LIKE,
-    FORUM_POST_SINGLE_CLOSE,
     FORUM_POST_SINGLE_LOADING_FINISH,
     FORUM_POST_SINGLE_LOADING_START,
-    FORUM_SECTION_LIST_LOADING_FINISH,
-    FORUM_SECTION_LIST_LOADING_START, FORUM_SUB_CATEGORY_LIST_LOADING_FINISH,
-    FORUM_SUB_CATEGORY_LIST_LOADING_START
+    SECTION_LIST_FETCH_FINISH,
+    FORUM_SUB_CATEGORY_LIST_LOADING_FINISH,
+    FORUM_SUB_CATEGORY_LIST_LOADING_START,
+    SECTION_SET_ACTIVE,
+    FORUM_CATEGORY_SET_ACTIVE,
+    FORUM_SUB_CATEGORY_LIST_FETCH_FINISH, FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH
 
 } from "../actionTypes";
 
 const initialState = {
     sectionList: [], // all section list
     activeSectionPk: null, // pk of active section
-    isSectionListLoading: false,
 
     categoryList: [], // category list of active section
     activeCategoryPk: null, // pk of active category
-    isCategoryListLoading: false,
 
-    subcategoryList: [], // subcategory list of active category
+    subCategoryList: [], // subcategory list of active category
     activeSubcategoryPk: null, // pk of active subcategory
-    isSubcategoryListLoading: false,
 
     postList: [], // post list of active subcategory
     postListHasNext: true,
@@ -93,31 +92,26 @@ function commentAddFinish(state, comment) {
     return {...state, activePostCommentList, isProsesCommentAdd: false}
 }
 
+function categoryListFetchFinish(state, categoryList) {
+    return {...state, categoryList: categoryList, activeCategoryPk: categoryList[0]['id']}
+}
+
 export default function forumReducer(state = initialState, action) {
     switch (action.type) {
 
-        case FORUM_SECTION_LIST_LOADING_START:
-            return {...state, isSectionListLoading: true}
+        case SECTION_LIST_FETCH_FINISH:
+            return {...state, sectionList: action.payload}
 
-        case FORUM_SECTION_LIST_LOADING_FINISH:
-            return {...state, isSectionListLoading: false, sectionList: action.payload}
+        case FORUM_CATEGORY_LIST_FETCH_FINISH:
+            return categoryListFetchFinish(state, action.payload)
 
-        case FORUM_CATEGORY_LIST_LOADING_START:
-            return {...state, categoryList: [], activeSectionPk: action.payload, isCategoryLoading: true}
+        case FORUM_CATEGORY_SET_ACTIVE:
+            return {...state, activeCategoryPk: action.payload}
 
-        case FORUM_CATEGORY_LIST_LOADING_FINISH:
-            return {...state, categoryList: action.payload, isCategoryLoading: false}
+        case FORUM_SUB_CATEGORY_LIST_FETCH_FINISH:
+            return {...state, subCategoryList: action.payload,postList: [], postListPage: 1}
 
-        case FORUM_SUB_CATEGORY_LIST_LOADING_START:
-            return {...state, activeCategoryPk: action.payload, isSubcategoryListLoading: true}
-
-        case FORUM_SUB_CATEGORY_LIST_LOADING_FINISH:
-            return {...state, isSubcategoryListLoading: false, subcategoryList: action.payload}
-
-        case FORUM_CATEGORY_POST_LIST_LOADING_START:
-            return {...state, postList: [], postListHasNext: false}
-
-        case FORUM_CATEGORY_POST_LIST_LOADING_FINISH:
+        case FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH:
             return postListLoadingFinish(state, action.payload)
 
         case FORUM_POST_LIKE:

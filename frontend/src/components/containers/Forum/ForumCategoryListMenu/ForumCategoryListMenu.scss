@@ -28,9 +28,11 @@
   text-transform: uppercase;
 
   background-color: #94A5D8;
+  border: none;
 
   cursor: pointer;
   transition: all .1s ease;
+  outline: none;
 
   &:hover,
   &:focus {
@@ -38,3 +40,15 @@
   }
 }
 
+.item.active .link {
+  background-color: #6875BB;
+
+  &:hover,
+  &:focus {
+    color: #FFFFFF;
+  }
+
+  &:active {
+    color: #FFFFFF;
+  }
+}

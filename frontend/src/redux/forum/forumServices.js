@@ -1,32 +1,26 @@
 import {store, dispatch} from '../store'
 import {
-    forumCategoryListLoadingAction,
-    forumCategoryPostListLoadingAction,
+    categoryListFetchAction,
     forumPostCommentAddAction,
     forumPostCommentLikeAction,
     forumPostLikeAction,
     forumPostSingleLoading,
-    forumSectionListLoadingAction,
-    forumSubCategoryListLoading,
-    forumAllPostListLoadingAction
+    sectionListFetchAction,
+    subCategoryListFetch,
+    categorySetActiveAction, forumSubCategoryPostListFetchAction,
 } from "./forumActions"
 
 export default {
-    sectionListLoading: () => dispatch(forumSectionListLoadingAction()),
-
-    categoryListLoading: sectionPk => dispatch(forumCategoryListLoadingAction(sectionPk)),
-
-    subCategoryListLoading: categoryPk => dispatch(forumSubCategoryListLoading(categoryPk)),
-
-    allPostList: () => dispatch(forumAllPostListLoadingAction()),
-
+    sectionListFetch: () => dispatch(sectionListFetchAction()),
+    categoryListFetch: sectionPk => dispatch(categoryListFetchAction(sectionPk)),
+    categorySetActive: categoryPk => dispatch(categorySetActiveAction(categoryPk)),
+    subCategoryListFetch: categoryPk => dispatch(subCategoryListFetch(categoryPk)),
     postLike: postPk => dispatch(forumPostLikeAction(postPk)),
-    categoryPostListLoading: (categoryPk) => {
+    subCategoryPostListFetch: (subCategoryPk) => {
         const page = store.getState().forum.postListPage
-        dispatch(forumCategoryPostListLoadingAction(categoryPk, page, 9))
+        dispatch(forumSubCategoryPostListFetchAction(subCategoryPk, page, 9))
     },
     postSingleLoading: postPk => dispatch(forumPostSingleLoading(postPk)),
-
     commentLike: commentPk => dispatch(forumPostCommentLikeAction(commentPk)),
     commentAdd: (postPk, text, parentPk = null) => dispatch(forumPostCommentAddAction(postPk, text, parentPk))
 }

@@ -1,6 +1,5 @@
 import {
-    FORUM_CATEGORY_LIST_LOADING_FINISH,
-    FORUM_CATEGORY_LIST_LOADING_START,
+    FORUM_CATEGORY_LIST_FETCH_FINISH,
     FORUM_SUB_CATEGORY_POST_LIST_LOADING_FINISH,
     FORUM_SUB_CATEGORY_POST_LIST_LOADING_START,
     FORUM_POST_COMMENT_ADD_FINISH,
@@ -9,94 +8,85 @@ import {
     FORUM_POST_LIKE,
     FORUM_POST_SINGLE_LOADING_FINISH,
     FORUM_POST_SINGLE_LOADING_START,
-    FORUM_SECTION_LIST_LOADING_FINISH,
-    FORUM_SECTION_LIST_LOADING_START, FORUM_SUB_CATEGORY_LIST_LOADING_FINISH,
-    FORUM_SUB_CATEGORY_LIST_LOADING_START, FORUM_ALL_POST_LIST_LOADING_FINISH, FORUM_ALL_POST_LIST_LOADING_START
+    SECTION_LIST_FETCH_FINISH,
+    FORUM_ALL_POST_LIST_LOADING_FINISH,
+    FORUM_ALL_POST_LIST_LOADING_START,
+    FORUM_CATEGORY_SET_ACTIVE, FORUM_SUB_CATEGORY_LIST_FETCH_FINISH, FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH
 } from "../actionTypes"
 import createAction from "../createAction"
 import api from "../../api/api"
 
 
-/** SECTION LIST LOADING **/
-const forumSectionListLoadingStartAction = () => createAction(FORUM_SECTION_LIST_LOADING_START)
-const forumSectionListLoadingFinishAction = sectionList => createAction(FORUM_SECTION_LIST_LOADING_FINISH, sectionList)
-
-export function forumSectionListLoadingAction() {
+/** SECTION LIST Fetch **/
+export function sectionListFetchAction() {
     return async dispatch => {
-        dispatch(forumSectionListLoadingStartAction())
-
         try {
-            const response = await api.forum.sectionList()
-            dispatch(forumSectionListLoadingFinishAction(response.data))
+            const response = await api.forum.sectionListFetch()
+            dispatch(createAction(SECTION_LIST_FETCH_FINISH, response.data))
         } catch (error) {
             console.log('Forum section loading error', error)
         }
     }
 }
-/** END SECTION LIST LOADING **/
+
+/** END SECTION LIST Fetch **/
 
 
-/** CATEGORY LIST LOADING **/
-const forumCategoryListLoadingStartAction = sectionPk => createAction(FORUM_CATEGORY_LIST_LOADING_START, sectionPk)
-const forumCategoryListLoadingFinishAction = categoryList => createAction(FORUM_CATEGORY_LIST_LOADING_FINISH, categoryList)
-
-export function forumCategoryListLoadingAction(sectionPk) {
+/** CATEGORY LIST Fetch **/
+export function categoryListFetchAction(sectionPk) {
     return async dispatch => {
-        dispatch(forumCategoryListLoadingStartAction(sectionPk))
         try {
             const response = await api.forum.categoryList(sectionPk)
-            dispatch(forumCategoryListLoadingFinishAction(response.data))
+            dispatch(createAction(FORUM_CATEGORY_LIST_FETCH_FINISH, response.data))
         } catch (error) {
             console.log('Forum category loading error', error)
         }
-
     }
 }
 
-/** END CATEGORY LIST LOADING **/
+/** END CATEGORY LIST Fetch **/
 
 
-/** SUB CATEGORY LIST LOADING **/
-const forumSubCategoryListLoadingStartAction = categoryPk => createAction(FORUM_SUB_CATEGORY_LIST_LOADING_START, categoryPk)
-const forumSubCategoryListLoadingFinishAction = subCategoryList => createAction(FORUM_SUB_CATEGORY_LIST_LOADING_FINISH, subCategoryList)
+/** SET ACTIVE CATEGORY PK **/
+export const categorySetActiveAction = categoryPk => createAction(FORUM_CATEGORY_SET_ACTIVE, categoryPk)
 
-export function forumSubCategoryListLoading(categoryPk) {
+/** END SET ACTIVE CATEGORY PK **/
+
+
+/** SUB CATEGORY LIST FETCH **/
+export function subCategoryListFetch(categoryPk) {
     return async dispatch => {
-        dispatch(forumSubCategoryListLoadingStartAction(categoryPk))
         try {
-            const response = await api.forum.subCategoryList(categoryPk)
-            dispatch(forumSubCategoryListLoadingFinishAction(response.data))
+            const response = await api.forum.subCategoryListFetch(categoryPk)
+            dispatch(createAction(FORUM_SUB_CATEGORY_LIST_FETCH_FINISH, response.data))
         } catch (error) {
             console.log('Forum subcategory loading error', error)
         }
     }
 }
-/** END SUB CATEGORY LIST LOADING **/
+
+/** END SUB CATEGORY LIST FETCH **/
 
 
-/** CATEGORY POST LIST LOADING **/
-const forumSubCategoryPostListLoadingStartAction = () => createAction(FORUM_SUB_CATEGORY_POST_LIST_LOADING_START)
-const forumSubCategoryPostListLoadingFinishAction = postList => createAction(FORUM_SUB_CATEGORY_POST_LIST_LOADING_FINISH, postList)
-
-export function forumSubCategoryPostListLoadingAction(categoryPk, page, numberOnPage) {
+/** CATEGORY POST LIST FETCH **/
+export function forumSubCategoryPostListFetchAction(subCategoryPk, page, numberOnPage) {
     return async dispatch => {
-        dispatch(forumCategoryPostListLoadingStartAction())
-
         try {
-            const response = await api.forum.subCategoryPostList(categoryPk, page, numberOnPage)
-            dispatch(forumCategoryPostListLoadingFinishAction(response.data))
+            const response = await api.forum.subCategoryPostList(subCategoryPk, page, numberOnPage)
+            dispatch(createAction(FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH, response.data))
         } catch (error) {
             console.log('Forum post list loading error', error)
         }
     }
 }
 
-/** END CATEGORY POST LIST LOADING **/
+/** END CATEGORY POST LIST FETCH **/
 
 
 /** FORUM ALL POSTS LOADING **/
 const forumAllPostListLoadingStartAction = () => createAction(FORUM_ALL_POST_LIST_LOADING_START)
 const forumAllPostListLoadingFinishAction = postList => createAction(FORUM_ALL_POST_LIST_LOADING_FINISH, postList)
+
 export function forumAllPostListLoadingAction() {
     return async dispatch => {
         dispatch(forumAllPostListLoadingStartAction())
@@ -109,6 +99,7 @@ export function forumAllPostListLoadingAction() {
         }
     }
 }
+
 /** END FORUM ALL POSTS LOADING **/
 
 
@@ -133,6 +124,7 @@ export function forumPostLikeAction(postPk) {
 /** POST SINGLE LOADING **/
 const forumPostSingleLoadingStartAction = () => createAction(FORUM_POST_SINGLE_LOADING_START)
 const forumPostSingleLoadingFinishAction = postData => createAction(FORUM_POST_SINGLE_LOADING_FINISH, postData)
+
 export function forumPostSingleLoading(postPk) {
     return async dispatch => {
         dispatch(forumPostSingleLoadingStartAction())
@@ -145,11 +137,13 @@ export function forumPostSingleLoading(postPk) {
         }
     }
 }
+
 /** END POST SINGLE LOADING **/
 
 /** POST COMMENT ADD **/
 const forumPostCommentAddStartAction = () => createAction(FORUM_POST_COMMENT_ADD_START)
 const forumPostCommentAddFinishAction = comment => createAction(FORUM_POST_COMMENT_ADD_FINISH, comment)
+
 export function forumPostCommentAddAction(postPk, text, parentPk = null) {
     return async dispatch => {
         dispatch(forumPostCommentAddStartAction())
@@ -162,11 +156,13 @@ export function forumPostCommentAddAction(postPk, text, parentPk = null) {
         }
     }
 }
+
 /** END POST COMMENT ADD **/
 
 
 /** POST COMMENT LIKE **/
 const forumPostCommentLikeStartAction = commentPk => createAction(FORUM_POST_COMMENT_LIKE, commentPk)
+
 export function forumPostCommentLikeAction(commentPk) {
     return async dispatch => {
         dispatch(forumPostCommentLikeStartAction(commentPk))
@@ -177,4 +173,5 @@ export function forumPostCommentLikeAction(commentPk) {
         }
     }
 }
+
 /** END POST COMMENT LIKE **/

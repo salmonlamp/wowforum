@@ -16,9 +16,9 @@ const Header = () => {
             <div className={classes.top}>
                 <Container>
                     <div className={classes.topContent}>
-                        <div className={classes.logoArea}>
+                        <Link to={'/'} className={classes.logoArea}>
                             <Logo/>
-                        </div>
+                        </Link>
 
                         <div className={classes.center}>
                             <div className={classes.search}>
@@ -66,7 +66,7 @@ const Header = () => {
             </div>
 
             <nav id="nav" className={classes.navigation}>
-                {/*<Navigation/>*/}
+                <Navigation/>
             </nav>
 
         </header>

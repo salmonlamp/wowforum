@@ -23,14 +23,12 @@ export const MEME_COMMENT_LIKE_API_URL = commentPk => 'memes/comments/' + commen
 /** FORUM **/
 export const FORUM_SECTION_LIST_API_URL = 'forum/sections'
 export const FORUM_CATEGORY_LIST_API_URL = sectionPk => `forum/sections/${sectionPk}`
-export const FORUM_CATEGORY_SUBCATEGORY_LIST_API_URL = categoryPk => `forum/categories/${categoryPk}`
-export const FORUM_SUBCATEGORY_POST_LIST_API_URL = subCategoryPk => `forum/categories/${subCategoryPk}`
+export const FORUM_SUBCATEGORY_LIST_API_URL = categoryPk => `forum/categories/${categoryPk}`
+export const FORUM_SUBCATEGORY_POST_LIST_API_URL = subCategoryPk => `forum/subcategories/${subCategoryPk}`
 export const FORUM_POST_SINGLE_API_UR = postPk => `forum/posts/${postPk}`
 export const FORUM_POST_LIKE_API_URL = postPk => `forum/posts/${postPk}/like`
 export const FORUM_POST_COMMENT_LIST_API_URL = postPk => `forum/posts/${postPk}/comments`
 export const FORUM_POST_COMMENT_LIKE_API_UR = commentPk => `forum/comments/${commentPk}/like`
-
-// temp
 export const FORUM_ALL_POST_LIST_API_URL = 'forum/posts'
 /** END FORUM **/
 

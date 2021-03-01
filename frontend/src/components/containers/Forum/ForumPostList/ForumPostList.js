@@ -5,15 +5,12 @@ import ForumPostCard from "../ForumPostCard/ForumPostCard"
 import InfiniteScroll from "react-infinite-scroll-component"
 import {CommonLoading} from "react-loadingg"
 
-const ForumPostList = ({categoryPk}) => {
+const ForumPostList = ({subCategoryPK}) => {
     const isLogged = useSelector(state => state.auth.isLogged)
     const hasNext = useSelector(state => state.forum.postListHasNext)
     const list = useSelector(state => state.forum.postList)
 
-    useEffect(
-        () => forumServices.allPostList(),
-        []
-    )
+    useEffect(() => forumServices.subCategoryPostListFetch(subCategoryPK), [])
 
     const items = list
         ? Object.keys(list)
@@ -32,21 +29,21 @@ const ForumPostList = ({categoryPk}) => {
         : null
 
     return (
-        // <InfiniteScroll
-        //     dataLength={items.length} //This is important field to render the next data
-        //     next={() => forumServices.categoryPostListLoading(categoryPk)}
-        //     hasMore={hasNext}
-        //     loader={<CommonLoading/>}
-        //     endMessage={
-        //         <p style={{textAlign: 'center'}}>
-        //             <b>Yay! You have seen it all</b>
-        //         </p>
-        //     }
-        // >
-        <div>
-            {items}
-        </div>
-        // </InfiniteScroll>
+        <InfiniteScroll
+            dataLength={items.length} //This is important field to render the next data
+            next={() => forumServices.subCategoryPostListFetch(categoryPk)}
+            hasMore={hasNext}
+            loader={<CommonLoading/>}
+            endMessage={
+                <p style={{textAlign: 'center'}}>
+                    <b>Yay! You have seen it all</b>
+                </p>
+            }
+        >
+            <div>
+                {items}
+            </div>
+        </InfiniteScroll>
     )
 }
 

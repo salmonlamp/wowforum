@@ -8,6 +8,7 @@ urlpatterns = [
     path('posts', views.ForumAllPostsListView.as_view()),
     path('sections', views.ForumSectionListView.as_view()),
     path('sections/<int:pk>', views.ForumCategoryListView.as_view()),
+    path('categories/<int:pk>', views.ForumSubCategoryListView.as_view()),
     path('subcategories/<int:pk>', views.ForumSubCategoryPostListView.as_view()),
     path('posts/<int:pk>', views.ForumPostSingleView.as_view()),
     path('posts/<int:pk>/like', views.ForumPostLikeView.as_view()),

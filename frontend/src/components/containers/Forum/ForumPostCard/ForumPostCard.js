@@ -7,7 +7,6 @@ import ForumServices from "../../../../redux/forum/forumServices";
 import {Link} from "react-router-dom";
 
 const ForumPostCard = ({post, isLogged, isLink = false}) => {
-    console.log(post)
 
     return (
         <div>

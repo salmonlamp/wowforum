@@ -27,8 +27,8 @@ class ForumCategoryListView(generics.ListAPIView):
 
     def get_queryset(self):
         section_id = self.kwargs.get('pk')
-        subcategory_list = ForumCategory.objects.filter(section_id=section_id)
-        return subcategory_list
+        category_list = ForumCategory.objects.filter(section_id=section_id)
+        return category_list
 
 
 class ForumSubCategoryListView(generics.ListAPIView):

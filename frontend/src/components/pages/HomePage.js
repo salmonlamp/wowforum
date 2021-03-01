@@ -11,9 +11,8 @@ const HomePage = () => {
         <Main>
             <Container>
                 <Content>
-                    {/*<MemeList/>*/}
-                    {/*<MemePopup/>*/}
-                    <ForumPostList/>
+                    <MemeList/>
+                    <MemePopup/>
                 </Content>
             </Container>
         </Main>

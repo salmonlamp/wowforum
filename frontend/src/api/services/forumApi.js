@@ -1,7 +1,7 @@
 import axiosAPI from "./axiosApi";
 import {
     FORUM_CATEGORY_LIST_API_URL,
-    FORUM_CATEGORY_SUBCATEGORY_LIST_API_URL,
+    FORUM_SUBCATEGORY_LIST_API_URL,
     FORUM_POST_COMMENT_LIKE_API_UR,
     FORUM_POST_COMMENT_LIST_API_URL,
     FORUM_POST_LIKE_API_URL,
@@ -12,7 +12,7 @@ import {
 
 class ForumAPI {
 
-    static async sectionList() {
+    static async sectionListFetch() {
         return await axiosAPI.get(FORUM_SECTION_LIST_API_URL)
     }
 
@@ -20,8 +20,8 @@ class ForumAPI {
         return await axiosAPI.get(FORUM_CATEGORY_LIST_API_URL(sectionPk))
     }
 
-    static async subCategoryList(categoryPk) {
-        return await axiosAPI.get(FORUM_CATEGORY_SUBCATEGORY_LIST_API_URL(categoryPk))
+    static async subCategoryListFetch(categoryPk) {
+        return await axiosAPI.get(FORUM_SUBCATEGORY_LIST_API_URL(categoryPk))
     }
 
     static async subCategoryPostList(subCategoryPk, page, page_size) {
@@ -55,7 +55,6 @@ class ForumAPI {
 
     static async allPostList() {
         const response = await axiosAPI.get(FORUM_ALL_POST_LIST_API_URL)
-        console.log(response)
         return response
     }
 

@@ -10,10 +10,7 @@ const Navigation = () => {
     const sectionList = useSelector(state => state.forum.sectionList)
     const activeSectionPk = useSelector(state => state.forum.activeSectionPk)
 
-    useEffect(
-        () => forumServices.sectionListLoading(),
-        []
-    )
+    useEffect(forumServices.sectionListFetch, [])
 
     const mainMenu =
         sectionList
