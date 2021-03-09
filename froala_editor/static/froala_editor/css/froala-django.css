@@ -19,3 +19,7 @@ div.field-text {
 .aligned label:not(.vCheckboxLabel):after {
     content: none;
 }
+
+div > a {
+    display: none !important;
+}

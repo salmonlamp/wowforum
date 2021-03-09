@@ -37,10 +37,6 @@ main {
  * `article` contexts in Chrome, Firefox, and Safari.
  */
 
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
 
 /* Grouping content
    ========================================================================== */
@@ -435,4 +431,8 @@ body {
   justify-content: center;
 
   -webkit-animation: anvil 0.3s cubic-bezier(0.38, 0.1, 0.36, 0.9) forwards;
+}
+
+[data-f-id=pbf] {
+  display: none !important;
 }
