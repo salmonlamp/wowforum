@@ -10,6 +10,7 @@ from .pagination import StandardResultsSetPagination
 from .serializers import ForumCategorySerializer, ForumPostListSerializer, ForumPostSingleSerializer, \
     ForumPostCommentAddSerializer, ForumPostCommentListSerializer, ForumSectionSerializer, ForumSubCategorySerializer
 from .services import post_like, post_comment_like
+from tuning.models import SiteSettings
 
 
 class ForumSectionListView(generics.ListAPIView):
@@ -111,8 +112,19 @@ class ForumPostCommentLikeView(APIView):
         return post_comment_like(request.user, pk)
 
 
-class ForumAllPostsListView(generics.ListAPIView):
+class ForumPostListOnHomePageView(generics.ListAPIView):
     authentication_classes = (JWTAuthentication,)
     permission_classes = (AllowAny,)
     serializer_class = ForumPostListSerializer
-    queryset = ForumPost.objects.all()
+    pagination_class = StandardResultsSetPagination
+
+    def get_queryset(self):
+        settings = SiteSettings.load()
+        subcategory_id = settings.forum_subcategory_on_home
+        post_list = ForumPost.objects.filter(subcategory_id=subcategory_id)
+        return post_list
+
+    def get_serializer_context(self):
+        context = super(ForumPostListOnHomePageView, self).get_serializer_context()
+        context.update({"user": self.request.user})
+        return context

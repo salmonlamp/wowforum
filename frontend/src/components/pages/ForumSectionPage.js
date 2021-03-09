@@ -12,7 +12,7 @@ const ForumSectionPage = props => {
         <Main>
             <Container>
                 <ForumCategoryListMenu sectionPK={sectionPk}/>
-                <Content borderTopRadius={false}>
+                <Content borderTopRadius={false} innerPadding={false}>
                     <ForumSubCategoryList/>
                 </Content>
             </Container>

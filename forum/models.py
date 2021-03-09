@@ -1,7 +1,8 @@
 from django.db import models
 
 from django.conf import settings
-from ckeditor_uploader.fields import RichTextUploadingField
+
+from froala_editor.fields import FroalaField
 
 User = settings.AUTH_USER_MODEL
 
@@ -54,9 +55,10 @@ class ForumPost(models.Model):
     subcategory = models.ForeignKey(ForumSubCategory, verbose_name='Подкатегория', on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
     title = models.CharField('Заголовок', max_length=200)
+    excerpt = models.TextField('Короткое описание', max_length=500, blank=True, null=True)
     image = models.ImageField('Изображение', upload_to='posts/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    text = RichTextUploadingField()
+    text = FroalaField('Текст', theme='dark')
     slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):

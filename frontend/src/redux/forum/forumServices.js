@@ -7,7 +7,9 @@ import {
     forumPostSingleLoading,
     sectionListFetchAction,
     subCategoryListFetch,
-    categorySetActiveAction, forumSubCategoryPostListFetchAction,
+    categorySetActiveAction,
+    forumSubCategoryPostListFetchAction,
+    forumPostListOnHomePageFetchAction,
 } from "./forumActions"
 
 export default {
@@ -22,5 +24,9 @@ export default {
     },
     postSingleLoading: postPk => dispatch(forumPostSingleLoading(postPk)),
     commentLike: commentPk => dispatch(forumPostCommentLikeAction(commentPk)),
-    commentAdd: (postPk, text, parentPk = null) => dispatch(forumPostCommentAddAction(postPk, text, parentPk))
+    commentAdd: (postPk, text, parentPk = null) => dispatch(forumPostCommentAddAction(postPk, text, parentPk)),
+    postListOnHome: () => {
+        const page = store.getState().forum.postListPage
+        dispatch(forumPostListOnHomePageFetchAction(page, 9))
+    },
 }

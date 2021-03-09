@@ -3,6 +3,7 @@ import classes from './ForumSubCategoryList.scss'
 import {useSelector} from "react-redux";
 import forumServices from "../../../../redux/forum/forumServices";
 import {Link} from "react-router-dom";
+import ForumSubCategoryPlate from "../ForumSubCategoryPlate/ForumSubCategoryPlate";
 
 const ForumSubCategoryList = () => {
     const categoryPk = useSelector(state => state.forum.activeCategoryPk)
@@ -15,11 +16,7 @@ const ForumSubCategoryList = () => {
             .map((key, index) => {
                     const item = list[key]
                     return (
-                        <li key={index}>
-                            <Link to={`/subcategories/${item['id']}`}>
-                                {item.name}
-                            </Link>
-                        </li>
+                        <ForumSubCategoryPlate key={index} subCategory={item}/>
                     )
                 }
             )

@@ -88,6 +88,22 @@ div.container {
   }
 }
 
+.container.lightGrey {
+  .icon {
+    fill: #C1CCEE;
+  }
+
+  .label {
+    color: #ffffff;
+  }
+
+  &.active {
+    .icon {
+      fill: #2C5BCC;
+    }
+  }
+}
+
 .container.brightBlue {
   .icon {
     fill: #2C5BCC;

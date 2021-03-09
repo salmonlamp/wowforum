@@ -26,7 +26,10 @@ class ForumSubCategorySerializer(serializers.ModelSerializer):
 class ForumPostListSerializer(serializers.ModelSerializer):
     class Meta:
         model = ForumPost
-        fields = ('id', 'title', 'image', 'created_at', 'author', 'created_at', 'like_count', 'liked', 'comment_count')
+        fields = (
+            'id', 'title', 'excerpt', 'image', 'created_at', 'author',
+            'created_at', 'like_count', 'liked', 'comment_count'
+        )
 
     like_count = serializers.SerializerMethodField()
     liked = serializers.SerializerMethodField()
@@ -49,7 +52,10 @@ class ForumPostListSerializer(serializers.ModelSerializer):
 class ForumPostSingleSerializer(serializers.ModelSerializer):
     class Meta:
         model = ForumPost
-        fields = ('id', 'title', 'image', 'created_at', 'author', 'created_at', 'text', 'like_count', 'liked', 'comment_count')
+        fields = (
+            'id', 'title', 'excerpt', 'image', 'created_at', 'author', 'created_at',
+            'text', 'like_count', 'liked', 'comment_count'
+        )
 
     like_count = serializers.SerializerMethodField()
     liked = serializers.SerializerMethodField()
@@ -67,7 +73,6 @@ class ForumPostSingleSerializer(serializers.ModelSerializer):
 
     def get_comment_count(self, obj):
         return obj.comments.count()
-
 
 
 class ForumPostCommentAddSerializer(serializers.ModelSerializer):

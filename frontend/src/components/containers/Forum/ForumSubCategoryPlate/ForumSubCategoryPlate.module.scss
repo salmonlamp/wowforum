@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 26px 40px 30px;
+
+  border-top: 1px solid #C2C2C2;
+}
+
+.column {
+
+}
+
+.name {
+  margin: 0;
+}
+
+.link {
+  font-size: 18px;
+  line-height: 22px;
+  color: #515151;
+
+  cursor: pointer;
+  transition: all 0.1s ease;
+
+  &:hover,
+  &:focus {
+    color: #00A8CC;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.infoData {
+  margin: 0 0 2px;
+
+  font-size: 16px;
+  line-height: 19px;
+  font-weight: 900;
+  color: #515151;
+  text-align: center;
+}
+
+.infoLabel {
+  margin: 0;
+
+  font-size: 16px;
+  line-height: 19px;
+  color: #AAAAAA;
+  text-align: center;
+}

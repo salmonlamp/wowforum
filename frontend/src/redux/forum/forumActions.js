@@ -1,7 +1,5 @@
 import {
     FORUM_CATEGORY_LIST_FETCH_FINISH,
-    FORUM_SUB_CATEGORY_POST_LIST_LOADING_FINISH,
-    FORUM_SUB_CATEGORY_POST_LIST_LOADING_START,
     FORUM_POST_COMMENT_ADD_FINISH,
     FORUM_POST_COMMENT_ADD_START,
     FORUM_POST_COMMENT_LIKE,
@@ -9,9 +7,10 @@ import {
     FORUM_POST_SINGLE_LOADING_FINISH,
     FORUM_POST_SINGLE_LOADING_START,
     SECTION_LIST_FETCH_FINISH,
-    FORUM_ALL_POST_LIST_LOADING_FINISH,
-    FORUM_ALL_POST_LIST_LOADING_START,
-    FORUM_CATEGORY_SET_ACTIVE, FORUM_SUB_CATEGORY_LIST_FETCH_FINISH, FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH
+    FORUM_CATEGORY_SET_ACTIVE,
+    FORUM_SUB_CATEGORY_LIST_FETCH_FINISH,
+    FORUM_SUB_CATEGORY_POST_LIST_FETCH_FINISH,
+    FORUM_POST_LIST_ON_HOME_PAGE_FETCH_START, FORUM_POST_LIST_ON_HOME_PAGE_FETCH_FINISH
 } from "../actionTypes"
 import createAction from "../createAction"
 import api from "../../api/api"
@@ -68,7 +67,7 @@ export function subCategoryListFetch(categoryPk) {
 /** END SUB CATEGORY LIST FETCH **/
 
 
-/** CATEGORY POST LIST FETCH **/
+/** CATEGORY POST LIST FETCH BY subCategory **/
 export function forumSubCategoryPostListFetchAction(subCategoryPk, page, numberOnPage) {
     return async dispatch => {
         try {
@@ -80,27 +79,22 @@ export function forumSubCategoryPostListFetchAction(subCategoryPk, page, numberO
     }
 }
 
-/** END CATEGORY POST LIST FETCH **/
+/** END CATEGORY POST LIST FETCH BY subCategory **/
 
 
-/** FORUM ALL POSTS LOADING **/
-const forumAllPostListLoadingStartAction = () => createAction(FORUM_ALL_POST_LIST_LOADING_START)
-const forumAllPostListLoadingFinishAction = postList => createAction(FORUM_ALL_POST_LIST_LOADING_FINISH, postList)
-
-export function forumAllPostListLoadingAction() {
+/** CATEGORY POST LIST ON HOME FETCH **/
+export function forumPostListOnHomePageFetchAction(page, numberOnPage) {
     return async dispatch => {
-        dispatch(forumAllPostListLoadingStartAction())
-
         try {
-            const response = await api.forum.allPostList()
-            dispatch(forumAllPostListLoadingFinishAction(response.data))
+            const response = await api.forum.postListOnHomePage(page, numberOnPage)
+            dispatch(createAction(FORUM_POST_LIST_ON_HOME_PAGE_FETCH_FINISH, response.data))
         } catch (error) {
-            console.log('All post list loading error', error)
+            console.log('Forum post list loading error', error)
         }
     }
 }
 
-/** END FORUM ALL POSTS LOADING **/
+/** END CATEGORY POST LIST ON HOME FETCH **/
 
 
 /** POST LIKE **/

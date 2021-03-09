@@ -8,7 +8,7 @@ const ForumCategoryPage = props => {
     return (
         <Main>
             <Container>
-                <Content>
+                <Content sideBar={true}>
                     <ForumPostSingle postPk={props.match.params.pk}/>
                 </Content>
             </Container>

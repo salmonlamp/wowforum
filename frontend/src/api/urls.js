@@ -1,8 +1,8 @@
-export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
-export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
+// export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
+// export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
 
-// export const BASE_API_URL = 'http://wow.salmontest.ru/api/'
-// export const WEBSOCKET_URL = 'ws://wow.salmontest.ru/ws/chat/'
+export const BASE_API_URL = 'http://wow.salmontest.ru/api/'
+export const WEBSOCKET_URL = 'ws://wow.salmontest.ru/ws/chat/'
 
 /** ACCOUNT **/
 export const TOKEN_REFRESH_API_URL = 'account/token/refresh/'
@@ -29,7 +29,7 @@ export const FORUM_POST_SINGLE_API_UR = postPk => `forum/posts/${postPk}`
 export const FORUM_POST_LIKE_API_URL = postPk => `forum/posts/${postPk}/like`
 export const FORUM_POST_COMMENT_LIST_API_URL = postPk => `forum/posts/${postPk}/comments`
 export const FORUM_POST_COMMENT_LIKE_API_UR = commentPk => `forum/comments/${commentPk}/like`
-export const FORUM_ALL_POST_LIST_API_URL = 'forum/posts'
+export const FORUM_POST_LIST_ON_HOME_PAGE_API_URL = 'forum/posts'
 /** END FORUM **/
 
 

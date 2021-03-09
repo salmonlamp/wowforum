@@ -24,6 +24,8 @@ urlpatterns = [
     path('api/memes/', include(('memes.urls', 'memes'), namespace='memes')),
     path('api/forum/', include(('forum.urls', 'forum'), namespace='forum')),
     path('api/chat/', include(('chat.urls', 'chat'), namespace='chat')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('', include(('frontend.urls', 'frontend'), namespace='frontend')),
+
+    path('froala_editor/', include('froala_editor.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

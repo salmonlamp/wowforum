@@ -1,18 +1,15 @@
 import React from 'react'
-import Content from "../wrappers/Content/Content";
-import Main from "../sections/Main/Main";
-import Container from "../wrappers/Container/Container";
-import MemePopup from "../containers/Memes/MemePopup/MemePopup";
-import MemeList from "../containers/Memes/MemeList/MemeList";
-import ForumPostList from "../containers/Forum/ForumPostList/ForumPostList";
+import Content from "../wrappers/Content/Content"
+import Main from "../sections/Main/Main"
+import Container from "../wrappers/Container/Container"
+import ForumHomeFeed from "../containers/Forum/ForumHomeFeed/ForumHomeFeed"
 
 const HomePage = () => {
     return (
         <Main>
             <Container>
-                <Content>
-                    <MemeList/>
-                    <MemePopup/>
+                <Content breadcrumbs={false}>
+                    <ForumHomeFeed/>
                 </Content>
             </Container>
         </Main>

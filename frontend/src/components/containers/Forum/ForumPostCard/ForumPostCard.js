@@ -1,27 +1,17 @@
 import React from 'react'
 import classes from './ForumPostCard.module.scss'
-import Author from "../../../ui/Author/Author";
-import PublishDate from "../../../ui/PublishDate/PublishDate";
 import IconButton from "../../../ui/IconButton/IconButton";
 import ForumServices from "../../../../redux/forum/forumServices";
 import {Link} from "react-router-dom";
+import ForumPostTopRow from "../ForumPostTopRow/ForumPostTopRow";
 
 const ForumPostCard = ({post, isLogged, isLink = false}) => {
 
     return (
         <div>
-            <div className={classes.topRow}>
-                <div className={classes.author}>
-                    <Author
-                        author={post.author}
-                    />
-                </div>
-                <div>
-                    <PublishDate
-                        date={post['created_at']}
-                    />
-                </div>
-            </div>
+
+            <ForumPostTopRow post={post}/>
+
             <h1 className={classes.title}>
                 {
                     isLink

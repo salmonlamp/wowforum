@@ -10,7 +10,7 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                exclude: /node_modules|App.scss/,
+                exclude: /node_modules|App.scss|ForumPostBody.scss/,
                 use: [
                     {
                         loader: "style-loader",
@@ -29,7 +29,7 @@ module.exports = {
                 ],
             },
             {
-                test: /App.scss/,
+                test: /App.scss|ForumPostBody.scss/,
                 exclude: /node_modules/,
                 use: [
                     {

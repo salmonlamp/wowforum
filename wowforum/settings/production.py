@@ -25,7 +25,7 @@ load_dotenv(os.path.join(BASE_DIR, '.env'))
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     os.getenv('ALLOWED_HOSTS_IP'),
@@ -35,15 +35,15 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'ckeditor',
-    'ckeditor_uploader',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'froala_editor',
+    'tuning',
 
     'rest_framework',
     'rest_framework_simplejwt',
@@ -147,32 +147,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
-CKEDITOR_UPLOAD_PATH = "posts/"
-CKEDITOR_CONFIGS = {
-    'default': {
-        'toolbar': [
-            ['Bold', 'Italic', 'Underline',
-             '-', 'Link', 'Unlink'
-             '-', 'Format',
-             '-', 'Maximize',
-             '-', 'Image',
-             '-', 'NumberedList', 'BulletedList'
-             ],
-            ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
-        ],
-        'height': 500,
-        'toolbarCanCollapse': False,
-        'forcePasteAsPlainText': True
-    }
-}
 
 AUTH_USER_MODEL = 'account.User'
 
@@ -213,3 +192,13 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:3000',
     'http://wow.salmontest.ru',
 ]
+
+FROALA_EDITOR_THIRD_PARTY = (
+    'accordion', 'color',
+)
+
+FROALA_EDITOR_THIRD_PARTY_WITH_CSS = (
+    'accordion',
+)
+
+FROALA_UPLOAD_PATH = 'posts/'

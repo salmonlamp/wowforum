@@ -5,7 +5,6 @@ from . import views
 app_name = 'forum'
 
 urlpatterns = [
-    path('posts', views.ForumAllPostsListView.as_view()),
     path('sections', views.ForumSectionListView.as_view()),
     path('sections/<int:pk>', views.ForumCategoryListView.as_view()),
     path('categories/<int:pk>', views.ForumSubCategoryListView.as_view()),
@@ -14,4 +13,5 @@ urlpatterns = [
     path('posts/<int:pk>/like', views.ForumPostLikeView.as_view()),
     path('posts/<int:pk>/comments', views.ForumPostCommentView.as_view()),
     path('comments/<int:pk>/like', views.ForumPostCommentLikeView.as_view()),
+    path('posts', views.ForumPostListOnHomePageView.as_view()),
 ]

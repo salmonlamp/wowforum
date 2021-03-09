@@ -7,7 +7,7 @@ import {
     FORUM_POST_LIKE_API_URL,
     FORUM_POST_SINGLE_API_UR, FORUM_SECTION_LIST_API_URL,
     FORUM_SUBCATEGORY_POST_LIST_API_URL,
-    FORUM_ALL_POST_LIST_API_URL
+    FORUM_POST_LIST_ON_HOME_PAGE_API_URL
 } from "../urls";
 
 class ForumAPI {
@@ -53,9 +53,8 @@ class ForumAPI {
     }
 
 
-    static async allPostList() {
-        const response = await axiosAPI.get(FORUM_ALL_POST_LIST_API_URL)
-        return response
+    static async postListOnHomePage(page, page_size) {
+        return await axiosAPI.get(FORUM_POST_LIST_ON_HOME_PAGE_API_URL, {page, page_size})
     }
 
 }

@@ -13,19 +13,33 @@ const IconButton = (
         active = false,
         disable = false,
         onClick = null,
-        href = null
+        href = null,
+        fontSize = 12,
     }
 ) => {
     const cls = [classes.container, className]
 
     switch (type) {
-        case 'white': cls.push(classes.white); break
-        case 'blue': cls.push(classes.blue); break
-        case 'grey': cls.push(classes.grey); break
-        case 'brightBlue': cls.push(classes.brightBlue); break
+        case 'white':
+            cls.push(classes.white);
+            break
+        case 'blue':
+            cls.push(classes.blue);
+            break
+        case 'grey':
+            cls.push(classes.grey);
+            break
+        case 'brightBlue':
+            cls.push(classes.brightBlue);
+            break
+        case 'lightGrey':
+            cls.push(classes.lightGrey);
+            break
     }
 
     if (active) cls.push(classes.active)
+
+    const marginLeft = fontSize / 2
 
     function clickHandler(e) {
         e.target.blur()
@@ -40,7 +54,7 @@ const IconButton = (
         />
         {
             text
-                ? <span className={classes.label}>{text}</span>
+                ? <span style={{fontSize, marginLeft}} className={classes.label}>{text}</span>
                 : null
         }
     </>)

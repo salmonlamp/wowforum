@@ -20,10 +20,12 @@
 
 .breadcrumbs {
   margin-bottom: 20px;
+  padding: 18px 40px 0;
 }
 
 .inner {
-  padding: 18px 40px 18px;
+  padding: 0 40px 40px;
+  margin-top: 20px;
 }
 
 .sidebar {
@@ -37,12 +39,18 @@
 }
 
 @media (max-width: 964px) {
-  .content.withSidebar {
+  .withSidebar {
     flex-direction: column;
   }
 
+  .breadcrumbs {
+    margin-bottom: 20px;
+    padding: 10px 15px 0;
+  }
+
   .inner {
-    padding: 8px 15px 8px;
+    padding: 0 15px 15px;
+    margin-top: 10px;
   }
 
   .breadcrumbs {
