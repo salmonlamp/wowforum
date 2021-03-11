@@ -22,7 +22,7 @@ const Content = (
         <div className={cls.join(' ')}>
 
 
-            <div>
+            <div className={classes.main}>
                 {
                     breadcrumbs
                         ? <div className={classes.breadcrumbs}>

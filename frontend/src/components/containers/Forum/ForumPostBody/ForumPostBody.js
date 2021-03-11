@@ -12,7 +12,7 @@ const ForumPostBody = ({body}) => {
 
     useEffect(() => {
         document.addEventListener('click', function (event) {
-            if (!event.target.matches('.accordionHeader')) return
+            if (!event.target.matches('.accordionTitle')) return
             toggleAccordion(event)
         }, false)
     }, [])

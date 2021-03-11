@@ -26,6 +26,6 @@ urlpatterns = [
     path('api/chat/', include(('chat.urls', 'chat'), namespace='chat')),
     path('', include(('frontend.urls', 'frontend'), namespace='frontend')),
 
-    path('froala_editor/', include('froala_editor.urls')),
+    path("ckeditor5/", include('django_ckeditor_5.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

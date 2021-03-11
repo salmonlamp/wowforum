@@ -9,7 +9,13 @@ const ForumPostPreview = ({post, isLogged, className, showExcerpt = false}) => {
 
     return (
         <div className={cls.join(' ')}>
-            <img className={classes.image} src={post.image} alt={post.title}/>
+
+            {
+                post.image
+                    ? <img className={classes.image} src={post.image} alt={post.title}/>
+                    : null
+            }
+
             <Link to={`/posts/${post.id}`} className={classes.link}/>
             <div className={classes.info}>
                 <div className={classes.controls}>

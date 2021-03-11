@@ -3,7 +3,6 @@
 from django.conf import settings
 from django.db import migrations, models
 import django.db.models.deletion
-import froala_editor.fields
 
 
 class Migration(migrations.Migration):
@@ -34,7 +33,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200, verbose_name='Заголовок')),
                 ('image', models.ImageField(blank=True, null=True, upload_to='posts/%Y/%m/%d/', verbose_name='Изображение')),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('text', froala_editor.fields.FroalaField(verbose_name='Text')),
+                ('text', models.TextField(verbose_name='Text')),
                 ('slug', models.SlugField(unique=True)),
                 ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL, verbose_name='Автор')),
             ],

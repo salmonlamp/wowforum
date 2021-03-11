@@ -1,8 +1,6 @@
 from django.db import models
-
 from django.conf import settings
-
-from froala_editor.fields import FroalaField
+from django_ckeditor_5.fields import CKEditor5Field
 
 User = settings.AUTH_USER_MODEL
 
@@ -51,6 +49,7 @@ class ForumPost(models.Model):
     class Meta:
         verbose_name = 'Пост на форуме'
         verbose_name_plural = 'Посты на форуме'
+        ordering = ['-created_at', ]
 
     subcategory = models.ForeignKey(ForumSubCategory, verbose_name='Подкатегория', on_delete=models.SET_NULL, null=True)
     author = models.ForeignKey(User, verbose_name='Автор', on_delete=models.CASCADE)
@@ -58,7 +57,7 @@ class ForumPost(models.Model):
     excerpt = models.TextField('Короткое описание', max_length=500, blank=True, null=True)
     image = models.ImageField('Изображение', upload_to='posts/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    text = FroalaField('Текст', theme='dark')
+    text = CKEditor5Field('Текст')
     slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):

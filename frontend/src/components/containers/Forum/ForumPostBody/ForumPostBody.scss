@@ -54,13 +54,19 @@
 
     li {
       list-style: none;
+      position: relative;
+
+      padding-left: 30px;
     }
 
     li:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+
       display: inline-block;
-      margin: 0;
-      margin-right: 12px;
-      min-width: 18px;
+      width: 18px;
       height: 18px;
 
       background: #B9DDF5;
@@ -100,10 +106,11 @@
     border-radius: 30px;
   }
 
-  .accordionHeader {
+  .accordionTitle {
     position: relative;
 
     display: flex;
+    margin: 0;
     padding: 20px 76px 20px 40px;
 
     font-weight: 800;
@@ -152,10 +159,12 @@
 
     p, h1, h2, h3, h4, h5 {
       margin: 0;
+
+      color: #ffffff;
     }
   }
 
-  .accordionBody {
+  .accordionDescription {
     overflow: hidden;
     padding: 0 40px;
     height: 0;
@@ -168,17 +177,19 @@
 
     p, h1, h2, h3, h4, h5 {
       margin: 0;
+
+      color: #ffffff;
     }
   }
 
   .open {
-    .accordionHeader {
+    .accordionTitle {
       &::before {
         background-image: url('./close.svg');
       }
     }
 
-    .accordionBody {
+    .accordionDescription {
       height: auto;
       padding: 28px 40px 40px 40px;
     }
