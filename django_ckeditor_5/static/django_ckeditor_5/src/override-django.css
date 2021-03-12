@@ -1,18 +1,32 @@
 /** Todo list **/
 
-.ck .todo-list input{
-   padding:0;
+.ck .todo-list input {
+    padding: 0;
 }
-.ck .todo-list__checkmark:after{
-   height: 6px !important;
+
+.ck .todo-list__checkmark:after {
+    height: 6px !important;
 }
+
 .ck .todo-list__checkmark {
     padding: 0;
 }
+
 .ck.ck-content.ck-editor__editable {
     min-height: 300px;
 }
-.ck h2{
+
+.ck h2 {
     color: inherit;
     background: inherit;
+}
+
+.ck.ck-color-grid,
+.ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_ne, .ck.ck-dropdown .ck-dropdown__panel.ck-dropdown__panel_se {
+    overflow-y: scroll;
+    max-height: 300px;
+}
+
+.ck.ck-list__item .ck-button .ck-button__label {
+    font-size: 18px!important;
 }

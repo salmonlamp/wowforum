@@ -10,7 +10,7 @@ const ForumSubCategoryPage = props => {
     return (
         <Main>
             <Container>
-                <Content>
+                <Content sideBar={true}>
                     <ForumPostList subCategoryPK={subCategoryPk}/>
                 </Content>
             </Container>

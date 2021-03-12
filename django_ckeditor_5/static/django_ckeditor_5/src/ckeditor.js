@@ -40,6 +40,7 @@ import ImageTitle from './custom_plugins/imagetitle';
 import ImageWithTitle from './custom_plugins/imagewithtitle';
 import Sign from "./custom_plugins/sign/sign";
 import Accordion from "./custom_plugins/accordion/accordion";
+import FullScreen from "./custom_plugins/fullScreen/FullScreen";
 
 
 export default class ClassicEditor extends ClassicEditorBase {}
@@ -80,4 +81,5 @@ ClassicEditor.builtinPlugins = [
     Sign,
 
     Accordion,
+    FullScreen,
 ];
