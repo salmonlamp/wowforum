@@ -1,0 +1,22 @@
+.accordion {
+    margin: 1em 0;
+    padding: 10px;
+
+    background: rgba(0, 0, 0, 0.1);
+    border: solid 1px hsl(0, 0%, 77%);
+    border-radius: 5px;
+}
+
+.accordionTitle {
+    padding: 10px 10px 10px 10px;
+
+    box-shadow: 0 4px 16px rgba(8, 17, 82, 0.2);
+    border-radius: 5px;
+    background: #FFF;
+}
+
+.accordionDescription {
+    padding: 10px;
+
+    background: #FFF;
+}

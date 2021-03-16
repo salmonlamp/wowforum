@@ -318,19 +318,40 @@ CKEDITOR_5_CONFIGS = {
             'code', 'subscript', 'superscript', 'highlight', '|',
             'bulletedList', 'numberedList', 'todoList', '|', 'blockQuote', 'imageUpload', '|',
             'alignment', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-            'insertTable', 'accordion', 'fullScreen',
+            'insertTable', 'accordion', 'fullScreen', 'row', 'htmlEmbed'
         ],
         'image': {
-            'toolbar': [
-                'imageTextAlternative', 'imageTitle', '|', 'imageStyle:alignLeft', 'imageStyle:full',
-                'imageStyle:alignRight', 'imageStyle:alignCenter', 'imageStyle:side', '|'
-            ],
             'styles': [
-                'full',
-                'side',
-                'alignLeft',
-                'alignRight',
-                'alignCenter',
+                'alignLeft', 'alignCenter', 'alignRight'
+            ],
+            'resizeOptions': [
+                {
+                    'name': 'resizeImage:original',
+                    'label': 'Original',
+                    'value': None
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '50%',
+                    'value': '50'
+                },
+                {
+                    'name': 'resizeImage:75',
+                    'label': '75%',
+                    'value': '75'
+                },
+                {
+                    'name': 'resizeImage:100',
+                    'label': '100%',
+                    'value': '100'
+                }
+            ],
+            'toolbar': [
+                'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+                '|',
+                'imageResize',
+                '|',
+                'imageTextAlternative'
             ]
         },
         'table': {
