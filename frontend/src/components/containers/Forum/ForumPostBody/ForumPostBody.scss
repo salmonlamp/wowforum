@@ -8,13 +8,18 @@
     color: #515151;
   }
 
-  img {
-    cursor: pointer;
+  .image {
+    margin: 0 10px 28px;
 
-    transition: all .1s ease;
+    img {
+      cursor: pointer;
 
-    &:hover {
-      opacity: 0.9;
+      transition: all .1s ease;
+      width: 100%;
+
+      &:hover {
+        opacity: 0.9;
+      }
     }
   }
 
@@ -193,5 +198,13 @@
       height: auto;
       padding: 28px 40px 40px 40px;
     }
+  }
+
+  .rowInner {
+    display: flex;
+  }
+
+  .raw-html-embed {
+    margin-bottom: 28px;
   }
 }
