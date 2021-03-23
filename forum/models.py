@@ -1,4 +1,3 @@
-from ckeditor.fields import RichTextField
 from django.db import models
 from django.conf import settings
 from django_ckeditor_5.fields import CKEditor5Field
@@ -59,7 +58,6 @@ class ForumPost(models.Model):
     image = models.ImageField('Изображение', upload_to='posts/%Y/%m/%d/', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     text = CKEditor5Field('Текст')
-    # text = RichTextField()
     slug = models.SlugField(max_length=50, unique=True)
 
     def __str__(self):

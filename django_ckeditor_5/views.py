@@ -14,10 +14,11 @@ class NoImageException(Exception):
 
 
 def image_verify(f):
-    try:
-        Image.open(f).verify()
-    except IOError:
-        raise NoImageException
+    # try:
+    #     Image.open(f).verify()
+    # except IOError:
+    #     raise NoImageException
+    pass
 
 
 def handle_uploaded_file(f):

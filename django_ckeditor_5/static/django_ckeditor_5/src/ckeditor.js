@@ -41,6 +41,12 @@ import FullScreen from "./custom_plugins/fullScreen/FullScreen";
 import Row from "./custom_plugins/row/row";
 import HtmlEmbed from "@ckeditor/ckeditor5-html-embed/src/htmlembed";
 
+import Video from "./custom_plugins/video/src/video";
+import VideoUpload from "./custom_plugins/video/src/videoupload";
+import VideoToolbar from "./custom_plugins/video/src/videotoolbar";
+import VideoResize from "./custom_plugins/video/src/videoresize";
+import VideoStyle from "./custom_plugins/video/src/videostyle";
+
 
 export default class ClassicEditor extends ClassicEditorBase {
 }
@@ -81,4 +87,10 @@ ClassicEditor.builtinPlugins = [
     Accordion,
     FullScreen,
     Row,
+
+    Video,
+    VideoUpload,
+    VideoToolbar,
+    VideoResize,
+    VideoStyle,
 ];

@@ -318,7 +318,8 @@ CKEDITOR_5_CONFIGS = {
             'code', 'subscript', 'superscript', 'highlight', '|',
             'bulletedList', 'numberedList', 'todoList', '|', 'blockQuote', 'imageUpload', '|',
             'alignment', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
-            'insertTable', 'accordion', 'fullScreen', 'row', 'htmlEmbed'
+            'insertTable', 'accordion', 'fullScreen', 'row', 'htmlEmbed',
+            'videoUpload'
         ],
         'image': {
             'styles': [
@@ -329,6 +330,16 @@ CKEDITOR_5_CONFIGS = {
                     'name': 'resizeImage:original',
                     'label': 'Original',
                     'value': None
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '25%',
+                    'value': '25'
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '35%',
+                    'value': '35'
                 },
                 {
                     'name': 'resizeImage:50',
@@ -378,6 +389,48 @@ CKEDITOR_5_CONFIGS = {
         },
         'fontSize': {
             'options': [n for n in range(14, 73, 2)]
+        },
+        'video': {
+            'styles': [
+                'alignLeft', 'alignCenter', 'alignRight'
+            ],
+            'resizeOptions': [
+                {
+                    'name': 'resizeImage:original',
+                    'label': 'Original',
+                    'value': None
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '25%',
+                    'value': '25'
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '35%',
+                    'value': '35'
+                },
+                {
+                    'name': 'resizeImage:50',
+                    'label': '50%',
+                    'value': '50'
+                },
+                {
+                    'name': 'resizeImage:75',
+                    'label': '75%',
+                    'value': '75'
+                },
+                {
+                    'name': 'resizeImage:100',
+                    'label': '100%',
+                    'value': '100'
+                }
+            ],
+            'toolbar': [
+                'videoStyle:alignLeft', 'videoStyle:alignCenter', 'videoStyle:alignRight',
+                '|',
+                'videoResize',
+            ],
         },
     }
 }
