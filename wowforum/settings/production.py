@@ -319,7 +319,7 @@ CKEDITOR_5_CONFIGS = {
             'bulletedList', 'numberedList', 'todoList', '|', 'blockQuote', 'imageUpload', '|',
             'alignment', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor', 'mediaEmbed', 'removeFormat',
             'insertTable', 'accordion', 'fullScreen', 'row', 'htmlEmbed',
-            'videoUpload'
+            'videoUpload', 'removeFormat',
         ],
         'image': {
             'styles': [
