@@ -1,8 +1,8 @@
-export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
-export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
+// export const BASE_API_URL = 'http://127.0.0.1:8000/api/'
+// export const WEBSOCKET_URL = 'ws://127.0.0.1:8000/ws/chat/'
 
-// export const BASE_API_URL = 'http://wow.salmontest.ru/api/'
-// export const WEBSOCKET_URL = 'ws://wow.salmontest.ru/ws/chat/'
+export const BASE_API_URL = 'http://wow.salmontest.ru/api/'
+export const WEBSOCKET_URL = 'ws://wow.salmontest.ru/ws/chat/'
 
 /** ACCOUNT **/
 export const TOKEN_REFRESH_API_URL = 'account/token/refresh/'
@@ -10,6 +10,17 @@ export const TOKEN_OBTAIN_API_URL = 'account/token/obtain/'
 export const USER_SIGNUP_API_URL = 'account/signup/'
 export const USER_ME_API_URL = 'account/me'
 /** END ACCOUNT **/
+
+
+/** TUNING **/
+export const SITE_SETTINGS_API_URL = 'tuning/'
+/** END TUNING **/
+
+
+/** PAGES **/
+export const PAGE_LIST_API_URl = 'pages/'
+export const PAGE_API_URl = slug => `pages/${slug}`
+/** END PAGES **/
 
 
 /** MEMES **/

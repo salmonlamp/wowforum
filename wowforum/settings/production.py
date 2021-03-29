@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'account',
     'memes',
     'chat',
+    'pages',
 ]
 
 MIDDLEWARE = [

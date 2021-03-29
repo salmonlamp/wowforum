@@ -26,5 +26,10 @@ class SiteSettings(SingletonModel):
     forum_subcategory_on_home = models.ForeignKey(ForumSubCategory, verbose_name='Подкатегория на главной',
                                                   null=True, on_delete=models.SET_NULL, )
 
+    twitter = models.CharField('Twitter', max_length=250, null=True, blank=True)
+    facebook = models.CharField('Facebook', max_length=250, null=True, blank=True)
+    instagram = models.CharField('Instagram', max_length=250, null=True, blank=True)
+
     def __str__(self):
         return 'Настройки сайта'
+

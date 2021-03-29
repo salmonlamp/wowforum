@@ -1,5 +1,3 @@
-// import EmbedContainer from "react-oembed-container/src";
-
 require('./ForumPostBody.scss')
 
 import React, {useEffect} from 'react'
@@ -22,9 +20,7 @@ const ForumPostBody = ({body}) => {
     return (
         <SimpleReactLightbox>
             <SRLWrapper>
-                {/*<EmbedContainer markup={body}>*/}
-                    <div className={'postBody'} dangerouslySetInnerHTML={{__html: body}}/>
-                {/*</EmbedContainer>*/}
+                <div className={'postBody'} dangerouslySetInnerHTML={{__html: body}}/>
             </SRLWrapper>
         </SimpleReactLightbox>
     )

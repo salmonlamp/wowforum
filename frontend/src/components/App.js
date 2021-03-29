@@ -10,11 +10,16 @@ import ProfileSettingsPage from "./pages/ProfileSettingsPage"
 import userServices from "../redux/user/userServices"
 import ForumSectionPage from "./pages/ForumSectionPage"
 import ForumSubCategoryPage from "./pages/ForumSubCategoryPage"
+import tuningServices from "../redux/tuning/tuningServices";
+import pagesServices from "../redux/pages/pagesServices";
+import InfoPage from "./pages/InfoPage";
 
 require('./App.scss')
 
 function App() {
     useEffect(userServices.me, [])
+    useEffect(tuningServices.loadSiteSettings, [])
+    useEffect(pagesServices.listFetch, [])
 
     return (
         <Router basename={''}>
@@ -28,6 +33,7 @@ function App() {
                 <Route exact path={'/sections/:pk'} component={ForumSectionPage}/>
                 <Route exact path={'/subcategories/:pk'} component={ForumSubCategoryPage}/>
                 <Route exact path={'/posts/:pk'} component={ForumPostPage}/>
+                <Route exact path={'/pages/:slug'} component={InfoPage}/>
                 <Route component={() => 'Page not found'}/>
             </Switch>
 

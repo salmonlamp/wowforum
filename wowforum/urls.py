@@ -24,6 +24,8 @@ urlpatterns = [
     path('api/memes/', include(('memes.urls', 'memes'), namespace='memes')),
     path('api/forum/', include(('forum.urls', 'forum'), namespace='forum')),
     path('api/chat/', include(('chat.urls', 'chat'), namespace='chat')),
+    path('api/pages/', include(('pages.urls', 'pages'), namespace='pages')),
+    path('api/tuning/', include(('tuning.urls', 'tuning'), namespace='tuning')),
     path('', include(('frontend.urls', 'frontend'), namespace='frontend')),
 
     path("ckeditor5/", include('django_ckeditor_5.urls')),
