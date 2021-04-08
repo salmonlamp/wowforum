@@ -12,3 +12,23 @@
     flex-wrap: wrap;
     background-color: #FFFFFF;
 }
+
+.rowInner .image {
+    margin: 0;
+}
+
+.rowInner .image-style-align-right {
+    margin-left: auto;
+    float: none;
+}
+
+.rowInner .image-style-align-left {
+    /*margin-right: auto;*/
+    float: none;
+}
+
+.rowInner .image-style-align-center {
+    margin-left: auto;
+    margin-right: auto;
+    float: none;
+}

@@ -126,6 +126,7 @@
 
   .accordionTitle {
     position: relative;
+    z-index: 10;
 
     margin: 0;
     padding: 20px 76px 20px 40px;
@@ -145,6 +146,22 @@
       content: '';
 
       position: absolute;
+      z-index: 20;
+      right: 24px;
+      top: 50%;
+
+      margin-top: -14px;
+      width: 28px;
+      height: 28px;
+
+      background-image: url("./open.svg");
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
       left: 0;
       right: 0;
       top: 0;
@@ -159,25 +176,18 @@
       border-radius: 30px;
     }
 
-    &::before {
-      content: '';
-
-      position: absolute;
-      z-index: 20;
-      right: 24px;
-      top: 50%;
-
-      margin-top: -14px;
-      width: 28px;
-      height: 28px;
-
-      background-image: url("./open.svg");
-    }
-
     p, h1, h2, h3, h4, h5 {
       margin: 0;
 
       color: #ffffff;
+    }
+
+    a {
+      color: #C1CCEE;
+
+      &:hover {
+        color: rgba(46, 60, 154, 1);
+      }
     }
   }
 
@@ -201,7 +211,7 @@
 
   .open {
     .accordionTitle {
-      &::before {
+      &::after {
         background-image: url('./close.svg');
       }
     }

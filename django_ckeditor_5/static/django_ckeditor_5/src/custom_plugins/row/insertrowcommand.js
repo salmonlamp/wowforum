@@ -23,6 +23,7 @@ function createRow(writer) {
     const rowInner = writer.createElement('rowInner');
 
     writer.append(rowInner, row);
+    writer.appendElement('paragraph', rowInner);
 
     return row;
 }
